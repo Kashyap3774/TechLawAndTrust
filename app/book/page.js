@@ -1,38 +1,89 @@
-import CTAButtons from "../../components/CTAButtons";
+// app/book/page.js
+import Link from "next/link";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Tech, Law & Trust | Book",
+  description:
+    "Tech, Law & Trust: India’s Path to IP Sovereignty — a policy-first guide to deep tech, governance, and IP sovereignty.",
+};
 
 export default function BookPage() {
   return (
-    <main className="container">
-      <div className="card">
-        <h1 className="h1">About the Book</h1>
-        <p className="small">
-          Tech Law & Trust connects technology strategy with legal design — focusing on
-          the institutions, rules, incentives, and guardrails that make advanced-tech execution real.
-        </p>
-        <div style={{ marginTop: 16 }}>
-          <CTAButtons />
-        </div>
-      </div>
+    <main className="parchment">
+      <header className="topNav">
+        <nav className="navInner">
+          <div className="navLeft">
+            <Link href="/" className="navLink">Home</Link>
+            <Link href="/chapters" className="navLink">Chapters</Link>
+          </div>
 
-      <div style={{ marginTop: 18 }} className="grid2">
-        <div className="card">
-          <h2 className="h2">Who it’s for</h2>
-          <ul className="small">
-            <li>Policy professionals, lawyers, researchers</li>
-            <li>Tech founders and product leaders</li>
-            <li>Students exploring technology law and governance</li>
-          </ul>
-        </div>
+          <div className="brand">
+            <span className="brandMark">TECH LAW & TRUST</span>
+          </div>
 
-        <div className="card">
-          <h2 className="h2">What you’ll learn</h2>
-          <ul className="small">
-            <li>How to design legal scaffolding for deep tech</li>
-            <li>Trust frameworks for data and digital systems</li>
-            <li>Innovation and IP sovereignty strategy</li>
-          </ul>
+          <div className="navRight">
+            <Link href="/book" className="navLink active">Book</Link>
+            <Link href="/contact" className="navLink">Contact</Link>
+          </div>
+        </nav>
+      </header>
+
+      <section className="hero">
+        <div className="heroInner">
+          <p className="kicker">A policy-first book on sovereignty, trust, and technology.</p>
+
+          <h1 className="heroTitle">
+            Tech, Law &amp; Trust <br />
+            <span className="heroSubtitle">India’s Path to IP Sovereignty</span>
+          </h1>
+
+          <p className="heroDesc">
+            A grounded, practitioner-led blueprint for building trust infrastructure—covering deep tech
+            governance, semiconductors, AI, data governance, and the legal scaffolding India needs to
+            convert ambition into execution certainty.
+          </p>
+
+          <p className="heroMeta">
+            <span className="metaLabel">Author</span>{" "}
+            <strong className="metaValue">Ashutosh D. Kashyap</strong>
+          </p>
+
+          <div className="heroCTAs">
+            <Link className="btnPrimary" href="/order">Order Now</Link>
+            <Link className="btnGhost" href="/chapters">Explore Chapters</Link>
+          </div>
+
+          <div className="bookShowcase">
+            <div className="bookStack">
+              {/* back "shadow" card */}
+              <div className="bookCard back" aria-hidden="true" />
+              {/* front cover */}
+              <div className="bookCard front">
+                <Image
+                  src="/cover.jpg"
+                  alt="Tech, Law & Trust book cover"
+                  width={820}
+                  height={1080}
+                  priority
+                  className="coverImg"
+                />
+              </div>
+            </div>
+
+            <div className="orderSealWrap">
+              <Link href="/order" className="orderSeal" aria-label="Order Now">
+                ORDER <br /> NOW
+              </Link>
+            </div>
+          </div>
+
+          <div className="microNote">
+            Want bulk orders, signed copies, or institutional purchases?{" "}
+            <Link href="/contact" className="inlineLink">Contact here</Link>.
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
