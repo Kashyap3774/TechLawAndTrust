@@ -4,260 +4,487 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Tech, Law &amp; Trust - India’s Path to IP Sovereignty</title>
-  <meta name="description" content="A high-impact book by Dr. Tamali Sen Gupta, JSD on IP Sovereignty, Deep-Tech Law, and India’s path from Apps to Atoms." />
+  <title>Tech, Law &amp; Trust — India's Path to IP Sovereignty</title>
+  <meta name="description" content="A high-impact book by Dr. Tamali Sen Gupta, JSD on IP Sovereignty, Deep-Tech Law, and India's path from Apps to Atoms." />
   <meta name="keywords" content="IP Sovereignty India, Deep-Tech Law, India AI Mission, Semiconductors, Tech Policy, Technology Sovereignty" />
 
-  <meta property="og:title" content="Tech, Law & Trust - India’s Path to IP Sovereignty" />
+  <meta property="og:title" content="Tech, Law & Trust — India's Path to IP Sovereignty" />
   <meta property="og:description" content="Can India Emerge as a Technology Sovereign Nation by 2047?" />
   <meta property="og:image" content="assets/cover.jpeg" />
   <meta property="og:type" content="website" />
 
   <link rel="icon" href="assets/cover.jpeg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <header class="header">
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="siteHeader">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="Tech, Law & Trust Home">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5" opacity=".6"/>
+            <path d="M8 8h12M8 14h8M8 20h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".8"/>
+          </svg>
+        </span>
         <span class="brand-text">
           <span class="brand-title">Tech, Law &amp; Trust</span>
-          <span class="brand-sub">India’s Path to IP Sovereignty</span>
+          <span class="brand-sub">India's Path to IP Sovereignty</span>
         </span>
       </a>
 
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#author">Author</a>
-        <a href="#order">Order</a>
-        <a href="#contact">Contact</a>
+      <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#roadmap" class="nav-link">Roadmap</a>
+        <a href="#author" class="nav-link">Author</a>
+        <a href="#order" class="nav-link">Order</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <div class="header-cta">
-        <a class="btn btn-ghost" id="emailTop" href="#order">Email</a>
-        <a class="btn btn-primary" id="whatsAppTop" href="#order">Order</a>
+      <div class="header-actions">
+        <a class="btn btn-sm btn-ghost" id="emailTop" href="#order">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+        <a class="btn btn-sm btn-primary" id="whatsAppTop" href="#order">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order
+        </a>
       </div>
 
-      <button class="burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
       </button>
     </div>
 
-    <div class="mobile-nav" id="mobileNav">
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="#about">About</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#author">Author</a>
       <a href="#order">Order</a>
       <a href="#contact">Contact</a>
-    </div>
+      <div class="mobile-nav-cta">
+        <a class="btn btn-primary btn-block" id="whatsAppMobile" href="#order">
+          Order on WhatsApp
+        </a>
+      </div>
+    </nav>
   </header>
 
   <main id="home">
-    <!-- HERO -->
+    <!-- ========== HERO ========== -->
     <section class="hero">
+      <div class="hero-bg-pattern" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="kicker">THE FUTURE IS HERE. IS INDIA READY?</p>
-          <h1>Can India Emerge as a <span class="accent">Technology Sovereign Nation</span> by 2047?</h1>
-          <p class="lead">
-            This book argues that true sovereignty requires a shift from scaling <b>“apps”</b> (delivery)
-            to creating <b>“atoms”</b> (discovery, hardware innovation, and IP).
+          <p class="kicker reveal" data-delay="0">
+            <span class="kicker-line" aria-hidden="true"></span>
+            The Future Is Here. Is India Ready?
+          </p>
+          <h1 class="reveal" data-delay="80">
+            Can India Emerge as a <span class="accent">Technology Sovereign</span> Nation by 2047?
+          </h1>
+          <p class="lead reveal" data-delay="160">
+            This book argues that true sovereignty requires a shift from scaling
+            <strong>"apps"</strong> (delivery) to creating <strong>"atoms"</strong>
+            (discovery, hardware innovation, and IP).
           </p>
 
-          <div class="cta-row">
-            <a class="btn btn-primary" id="whatsAppHero" href="#order">Order on WhatsApp</a>
-            <a class="btn btn-ghost" id="emailHero" href="#order">Order via Email</a>
+          <div class="cta-row reveal" data-delay="240">
+            <a class="btn btn-primary btn-lg" id="whatsAppHero" href="#order">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order on WhatsApp
+            </a>
+            <a class="btn btn-ghost btn-lg" id="emailHero" href="#order">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Order via Email
+            </a>
           </div>
 
-          <div class="trust-row">
-            <div class="pill">Deep-Tech Law</div>
-            <div class="pill">IP Sovereignty</div>
-            <div class="pill">Semiconductors • AI • Quantum</div>
+          <div class="trust-row reveal" data-delay="320">
+            <span class="pill"><span class="pill-dot" style="background:var(--saff)"></span>Deep-Tech Law</span>
+            <span class="pill"><span class="pill-dot" style="background:var(--green)"></span>IP Sovereignty</span>
+            <span class="pill"><span class="pill-dot" style="background:var(--gold)"></span>Semiconductors · AI · Quantum</span>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <img
-            src="assets/cover.jpeg"
-            alt="Tech, Law & Trust book cover"
-            loading="lazy"
-            class="cover"
-          />
+        <div class="hero-visual reveal" data-delay="120">
+          <div class="book-showcase">
+            <div class="book-glow" aria-hidden="true"></div>
+            <img
+              src="assets/cover.jpeg"
+              alt="Tech, Law & Trust book cover — a deep blue cover with gold text"
+              loading="eager"
+              class="cover-img"
+              width="460"
+              height="650"
+            />
+          </div>
+          <p class="edition-tag">First Edition · January 2026 · New Delhi</p>
         </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint reveal" data-delay="600" aria-hidden="true">
+        <span class="scroll-hint-text">Scroll to explore</span>
+        <span class="scroll-hint-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </span>
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ========== ABOUT ========== -->
     <section id="about" class="section">
       <div class="container">
-        <div class="section-head">
-          <h2>From “Apps” to “Atoms”</h2>
-          <p class="muted">A clear roadmap for India’s deep-tech and IP future - built for lawyers, policymakers, and engineers.</p>
+        <div class="section-label reveal">
+          <span class="section-num">01</span>
+          <span class="section-tag">About the Book</span>
         </div>
 
-        <div class="media-card">
-          <img src="assets/flyer2.jpeg" alt="Apps to Atoms illustration" loading="lazy" />
-          <div class="media-card-copy">
-            <ul class="bullets">
-              <li>Why India must move beyond pure services to deep-tech capability.</li>
-              <li>How policy, procurement, and capital can close the capability gap.</li>
-              <li>Where IP, standards, and regulation become strategic leverage.</li>
-              <li>What it takes to execute - institutions, incentives, and time-bound programs.</li>
-            </ul>
+        <div class="section-head reveal">
+          <h2>From <span class="accent">"Apps"</span> to <span class="accent">"Atoms"</span></h2>
+          <p class="subtitle">A clear roadmap for India's deep-tech and IP future — built for lawyers, policymakers, and engineers.</p>
+        </div>
+
+        <div class="media-card reveal">
+          <div class="media-card-img">
+            <img src="assets/flyer2.jpeg" alt="Apps to Atoms — illustrative spread from the book" loading="lazy" />
+          </div>
+          <div class="media-card-body">
+            <div class="feature-list">
+              <div class="feature-item">
+                <span class="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--saff)" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </span>
+                <div>
+                  <strong>Beyond Services</strong>
+                  <p>Why India must move from pure services to deep-tech capability.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+                <div>
+                  <strong>Policy &amp; Capital</strong>
+                  <p>How procurement, capital flows, and policy can close the capability gap.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                <div>
+                  <strong>Strategic Leverage</strong>
+                  <p>Where IP, standards, and regulation become instruments of national power.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </span>
+                <div>
+                  <strong>Execution Framework</strong>
+                  <p>Institutions, incentives, and time-bound programmes to make it happen.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ROADMAP -->
-    <section id="roadmap" class="section alt">
+    <!-- ========== ROADMAP ========== -->
+    <section id="roadmap" class="section section-alt">
       <div class="container">
-        <div class="section-head">
-          <h2>Inside the 5-Part Journey</h2>
-          <p class="muted">A structured path from institutional history to execution-grade policy design.</p>
+        <div class="section-label reveal">
+          <span class="section-num">02</span>
+          <span class="section-tag">The Roadmap</span>
         </div>
 
-        <div class="grid cards">
-          <article class="card">
-            <h3>Part A: Institutional Legacy</h3>
-            <p>From Princely States and Partition to the “Licence Raj”.</p>
-          </article>
-          <article class="card">
-            <h3>Part B: Technological Frontiers</h3>
-            <p>Semiconductors, AI “copyright wars”, and the quantum leap.</p>
-          </article>
-          <article class="card">
-            <h3>Part C: A Sovereignty Roadmap</h3>
-            <p>Regulatory sandboxes, procurement strategy, and sovereign funds.</p>
-          </article>
-          <article class="card">
-            <h3>Part D: The Execution Imperative</h3>
-            <p>Blueprint for a Strategic Technology Projects Authority (STPA).</p>
-          </article>
-          <article class="card">
-            <h3>Part E: Conclusion</h3>
-            <p>India Budget 2026 analysis and the path to an AI superpower.</p>
-          </article>
+        <div class="section-head reveal">
+          <h2>Inside the <span class="accent">5-Part Journey</span></h2>
+          <p class="subtitle">A structured path from institutional history to execution-grade policy design.</p>
+        </div>
+
+        <div class="roadmap-timeline">
+          <div class="timeline-track" aria-hidden="true">
+            <div class="timeline-fill" id="timelineFill"></div>
+          </div>
+
+          <div class="timeline-cards">
+            <article class="timeline-card reveal" data-part="A">
+              <div class="tc-marker"><span>A</span></div>
+              <div class="tc-body">
+                <h3>Institutional Legacy</h3>
+                <p>From Princely States and Partition to the "Licence Raj" — the roots of India's tech ecosystem.</p>
+              </div>
+            </article>
+
+            <article class="timeline-card reveal" data-part="B">
+              <div class="tc-marker"><span>B</span></div>
+              <div class="tc-body">
+                <h3>Technological Frontiers</h3>
+                <p>Semiconductors, AI "copyright wars", and the quantum computing leap.</p>
+              </div>
+            </article>
+
+            <article class="timeline-card reveal" data-part="C">
+              <div class="tc-marker"><span>C</span></div>
+              <div class="tc-body">
+                <h3>A Sovereignty Roadmap</h3>
+                <p>Regulatory sandboxes, procurement strategy, and sovereign tech funds.</p>
+              </div>
+            </article>
+
+            <article class="timeline-card reveal" data-part="D">
+              <div class="tc-marker"><span>D</span></div>
+              <div class="tc-body">
+                <h3>The Execution Imperative</h3>
+                <p>Blueprint for a Strategic Technology Projects Authority (STPA).</p>
+              </div>
+            </article>
+
+            <article class="timeline-card reveal" data-part="E">
+              <div class="tc-marker"><span>E</span></div>
+              <div class="tc-body">
+                <h3>Conclusion &amp; Call to Action</h3>
+                <p>India Budget 2026 analysis and the path to becoming an AI superpower.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- AUTHOR / AUTHORITY -->
+    <!-- ========== KEY NUMBERS ========== -->
+    <section class="section section-stats">
+      <div class="container">
+        <div class="stats-grid reveal">
+          <div class="stat-item">
+            <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Chapters</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="5">0</span>
+            <span class="stat-label">Thematic Parts</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="2047">0</span>
+            <span class="stat-label">Vision Year</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="1">0</span>
+            <span class="stat-label">Mission: Sovereignty</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== AUTHOR ========== -->
     <section id="author" class="section">
       <div class="container">
-        <div class="section-head">
-          <h2>Expertise &amp; Authority</h2>
-          <p class="muted">Endorsements + author positioning for credibility and trust.</p>
+        <div class="section-label reveal">
+          <span class="section-num">03</span>
+          <span class="section-tag">The Author</span>
         </div>
 
-        <div class="media-card">
-          <img src="assets/flyer3.jpeg" alt="Endorsements and author profile" loading="lazy" />
-          <div class="media-card-copy">
-            <h3>Dr. Tamali Sen Gupta, JSD</h3>
-            <p>
-              Corporate lawyer, Independent Board Director, and governance professional focused on
-              deep tech and intellectual property issues. Trained at Stanford Law School.
-            </p>
-            <p class="muted">
-              Core thesis: in an algorithmic age, trust is the foundation of safety—and sovereignty demands
-              ownership of critical technology and IP.
-            </p>
+        <div class="section-head reveal">
+          <h2>Expertise &amp; <span class="accent">Authority</span></h2>
+          <p class="subtitle">Endorsements and author positioning for credibility and trust.</p>
+        </div>
+
+        <div class="author-card reveal">
+          <div class="author-card-img">
+            <img src="assets/flyer3.jpeg" alt="Dr. Tamali Sen Gupta — endorsements and profile" loading="lazy" />
           </div>
+          <div class="author-card-body">
+            <h3>Dr. Tamali Sen Gupta, <span class="accent">JSD</span></h3>
+            <p class="author-role">Corporate Lawyer · Independent Board Director · Governance Professional</p>
+            <p>
+              Focused on deep tech and intellectual property issues. Trained at
+              <strong>Stanford Law School</strong>.
+            </p>
+            <blockquote class="author-quote">
+              <p>"In an algorithmic age, trust is the foundation of safety — and sovereignty demands ownership of critical technology and IP."</p>
+            </blockquote>
+            <div class="author-tags">
+              <span class="pill pill-sm">Stanford Law</span>
+              <span class="pill pill-sm">IP &amp; Deep Tech</span>
+              <span class="pill pill-sm">Board Governance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flyer 4 -->
+        <div class="endorsement-spread reveal">
+          <img src="assets/flyer4.jpeg" alt="Additional endorsements and media coverage" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <!-- ORDER CENTER -->
-    <section id="order" class="section alt">
+    <!-- ========== ORDER ========== -->
+    <section id="order" class="section section-alt">
       <div class="container">
-        <div class="section-head">
-          <h2>Order Center</h2>
-          <p class="muted">Order via WhatsApp, Email, or scan the QR code.</p>
+        <div class="section-label reveal">
+          <span class="section-num">04</span>
+          <span class="section-tag">Get Your Copy</span>
+        </div>
+
+        <div class="section-head reveal">
+          <h2>Order <span class="accent">Center</span></h2>
+          <p class="subtitle">Order via WhatsApp, Email, or scan the QR code.</p>
         </div>
 
         <div class="order-grid">
-          <div class="order-card">
-            <h3>Scan to Order</h3>
-            <img class="qr" src="assets/qr code.png" alt="QR code to order" loading="lazy" />
-            <p class="muted small">Tip: mobile users can order instantly using WhatsApp below.</p>
+          <!-- QR + Quick Buttons -->
+          <div class="order-card reveal">
+            <div class="order-card-top">
+              <h3>Scan to Order</h3>
+              <div class="qr-wrap">
+                <img class="qr-img" src="assets/qr code.png" alt="QR code to order Tech Law and Trust" loading="lazy" />
+              </div>
+              <p class="muted-sm">Mobile users can order instantly using WhatsApp below.</p>
+            </div>
 
-            <div class="cta-row">
-              <a class="btn btn-primary" id="whatsAppOrder" href="#">Order on WhatsApp</a>
-              <a class="btn btn-ghost" id="emailOrder" href="#">Order via Email</a>
+            <div class="order-card-actions">
+              <a class="btn btn-primary btn-block" id="whatsAppOrder" href="#">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Order on WhatsApp
+              </a>
+              <a class="btn btn-ghost btn-block" id="emailOrder" href="#">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Order via Email
+              </a>
             </div>
           </div>
 
-          <div class="order-card">
+          <!-- Order Form -->
+          <div class="order-card reveal" data-delay="100">
             <h3>Quick Order Details</h3>
-            <form id="orderForm">
-              <label>
-                Name
-                <input name="name" type="text" placeholder="Your name" required />
-              </label>
-
-              <label>
-                Mobile
-                <input name="mobile" type="tel" placeholder="+91..." required />
-              </label>
-
-              <label>
-                Address
-                <textarea name="address" rows="3" placeholder="Full delivery address" required></textarea>
-              </label>
-
-              <label class="row">
-                Quantity
-                <input name="qty" type="number" min="1" value="1" required />
-              </label>
-
-              <div class="cta-row">
-                <button class="btn btn-primary" type="submit">Generate WhatsApp Order</button>
-                <button class="btn btn-ghost" id="emailFromForm" type="button">Generate Email Order</button>
+            <form id="orderForm" novalidate>
+              <div class="form-group">
+                <label for="fname">Name</label>
+                <input id="fname" name="name" type="text" placeholder="Your full name" required autocomplete="name" />
+                <span class="field-error" aria-live="polite"></span>
               </div>
 
-              <p class="muted small">
-                This form does not store anything. It only prepares your message for WhatsApp / Email.
-              </p>
+              <div class="form-group">
+                <label for="fmobile">Mobile</label>
+                <input id="fmobile" name="mobile" type="tel" placeholder="+91…" required autocomplete="tel" />
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="faddress">Delivery Address</label>
+                <textarea id="faddress" name="address" rows="3" placeholder="Full delivery address" required autocomplete="street-address"></textarea>
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group form-group-sm">
+                  <label for="fqty">Qty</label>
+                  <div class="qty-control">
+                    <button type="button" class="qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>
+                    <input id="fqty" name="qty" type="number" min="1" value="1" required />
+                    <button type="button" class="qty-btn" data-action="inc" aria-label="Increase quantity">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn btn-primary btn-block" type="submit">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Generate WhatsApp Order
+                </button>
+                <button class="btn btn-ghost btn-block" id="emailFromForm" type="button">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  Generate Email Order
+                </button>
+              </div>
+
+              <p class="form-note">This form does not store anything. It only prepares your message for WhatsApp / Email.</p>
             </form>
           </div>
         </div>
 
-        <div class="promo">
-          <img src="assets/flyer1.jpeg" alt="Order promo" loading="lazy" />
+        <!-- Promo -->
+        <div class="promo-banner reveal">
+          <img src="assets/flyer1.jpeg" alt="Promotional flyer for Tech, Law & Trust" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- ========== CONTACT ========== -->
     <section id="contact" class="section">
       <div class="container">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p class="muted">For bulk orders, events, institutional partnerships, or media requests.</p>
+        <div class="section-label reveal">
+          <span class="section-num">05</span>
+          <span class="section-tag">Get In Touch</span>
         </div>
 
-        <div class="contact-box">
-          <div>
-            <div class="label">Email</div>
-            <a href="mailto:contact@techlawandtrust.com">contact@techlawandtrust.com</a><br />
+        <div class="section-head reveal">
+          <h2>Contact</h2>
+          <p class="subtitle">For bulk orders, events, institutional partnerships, or media requests.</p>
+        </div>
+
+        <div class="contact-grid reveal">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <h4>Email</h4>
+            <a href="mailto:contact@techlawandtrust.com">contact@techlawandtrust.com</a>
             <a href="mailto:tamalisg@gmail.com">tamalisg@gmail.com</a>
           </div>
-          <div>
-            <div class="label">Website</div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h4>Website</h4>
             <a href="https://techlawandtrust.com" target="_blank" rel="noreferrer">techlawandtrust.com</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--saff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h4>Location</h4>
+            <span>New Delhi, India</span>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="muted small">© <span id="year"></span> Tech, Law &amp; Trust. All rights reserved.</div>
-      <div class="muted small">First published January 2026, New Delhi.</div>
+      <div class="footer-left">
+        <span class="footer-brand">Tech, Law &amp; Trust</span>
+        <span class="muted-sm">© <span id="year"></span> All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <span class="muted-sm">First published January 2026, New Delhi.</span>
+      </div>
     </div>
   </footer>
 
