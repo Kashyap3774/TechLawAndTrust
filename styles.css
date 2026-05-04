@@ -762,6 +762,7 @@ h1 {
 /* ----- MOBILE (up to 560px) ----- */
 @media (max-width: 560px) {
   body { font-size: 14px; }
+  .brand-icon { display: none; }
   .brand-sub { display: none; }
   .header-actions .btn span { display: none; }
 
