@@ -749,7 +749,7 @@ h1 {
 /* ----- SMALL TABLET (up to 820px) — burger menu, stats 2-col ----- */
 @media (max-width: 820px) {
   .nav { display: none; }
-  .burger { display: flex; }
+  .burger { display: flex; order: -1; margin-right: 4px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
