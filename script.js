@@ -9,6 +9,7 @@
   const WHATSAPP_NUMBER = '+919330628567';
   const EMAIL_PRIMARY   = 'contact@techlawandtrust.com';
   const EMAIL_SECONDARY = 'tamalisg@gmail.com';
+  const AMAZON_URL      = 'https://www.amazon.in/dp/9356553289';
 
   // ====== HELPERS ======
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
@@ -53,6 +54,24 @@
     if (el) el.href = mailtoLink(defaultMsg);
   });
 
+  // ====== AMAZON LINKS ======
+  // Any link with the .js-amazon-link class or these IDs gets the Amazon URL,
+  // opens in a new tab, and is marked as a noreferrer external link.
+  const amazonIds = ['amazonTop', 'amazonHero', 'amazonOrder', 'amazonMobile', 'amazonStrip', 'amazonEvent'];
+  amazonIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.href = AMAZON_URL;
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
+    }
+  });
+  $$('.js-amazon-link').forEach((el) => {
+    el.href = AMAZON_URL;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+  });
+
   // ====== MOBILE NAV ======
   const burger = $('#burgerBtn');
   const mobileNav = $('#mobileNav');
@@ -75,14 +94,12 @@
 
   // ====== HEADER SCROLL STATE ======
   const header = $('#siteHeader');
-  let lastScroll = 0;
 
   function onHeaderScroll() {
     const y = window.scrollY;
     if (header) {
       header.classList.toggle('scrolled', y > 40);
     }
-    lastScroll = y;
   }
 
   // ====== READING PROGRESS ======
@@ -105,7 +122,11 @@
       if (sec.offsetTop <= y) current = sec.id;
     });
     navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      const href = link.getAttribute('href');
+      // Only auto-toggle for in-page anchors. Cross-page links keep their HTML-set 'active' state.
+      if (href && href.startsWith('#')) {
+        link.classList.toggle('active', href === '#' + current);
+      }
     });
   }
 
@@ -178,7 +199,6 @@
       function tick(now) {
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
-        // ease-out quad
         const eased = 1 - (1 - progress) * (1 - progress);
         el.textContent = Math.round(eased * target);
         if (progress < 1) requestAnimationFrame(tick);
@@ -194,9 +214,7 @@
 
   if (timelineFill && timelineTrack) {
     const timelineObserver = new IntersectionObserver(
-      () => {
-        updateTimelineFill();
-      },
+      () => { updateTimelineFill(); },
       { threshold: Array.from({ length: 20 }, (_, i) => i / 19) }
     );
 
@@ -213,8 +231,6 @@
       timelineFill.style.height = Math.max(0, h) + 'px';
     }
 
-    // Also update on each reveal
-    const origObserver = revealObserver; // reuse
     const tmMutObs = new MutationObserver(() => updateTimelineFill());
     $$('.timeline-card').forEach((el) => {
       tmMutObs.observe(el, { attributes: true, attributeFilter: ['class'] });
@@ -260,7 +276,6 @@
     return valid;
   }
 
-  // Clear error on input
   if (form) {
     form.querySelectorAll('input, textarea').forEach((el) => {
       el.addEventListener('input', () => {
@@ -269,9 +284,7 @@
         if (errEl) errEl.textContent = '';
       });
     });
-  }
 
-  if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!validateForm()) return;
@@ -300,18 +313,60 @@
     });
   });
 
-  // ====== SMOOTH SCROLL for all anchor links ======
+  // ====== SMOOTH SCROLL for in-page anchor links ======
   $$('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = header ? header.offsetHeight + 8 : 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+      const href = a.getAttribute('href');
+      if (href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const offset = header ? header.offsetHeight + 8 : 0;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       }
     });
   });
+
+  // =====================================================
+  // EVENTS — Lite YouTube + GLightbox
+  // =====================================================
+
+  // Lite YouTube — load iframe only on click. Saves ~1.5MB on initial page load.
+  $$('.lite-youtube').forEach((el) => {
+    el.addEventListener('click', () => {
+      if (el.classList.contains('activated')) return;
+      const videoId = el.dataset.videoid;
+      const title = el.dataset.title || 'YouTube video';
+      if (!videoId) return;
+
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0');
+      iframe.setAttribute('title', title);
+      iframe.setAttribute(
+        'allow',
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+      );
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('loading', 'lazy');
+
+      el.appendChild(iframe);
+      el.classList.add('activated');
+    });
+  });
+
+  // GLightbox — click-to-zoom photo gallery.
+  if (typeof GLightbox !== 'undefined') {
+    GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: false,
+      openEffect: 'zoom',
+      closeEffect: 'fade',
+    });
+  }
 
   // ====== INIT ======
   onHeaderScroll();
